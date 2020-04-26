@@ -1,0 +1,25 @@
+fdisk -l  pick up DISK = /dev/blaX
+hdparm -I /dev/DISK
+
+if your drive is frozen  issue:  echo -n mem > /sys/power/state 
+
+if NOT "frozen" continue:
+
+Set a password to enable sensitive content which will trigger safe wiping
+hdparm --user-master u --security-set-pass p /dev/DISK
+
+#ERASE
+hdparm --user-master u --security-erase-enhanced p /dev/DISK
+
+If NOT enhanced security then use:
+
+hdparm --user-master u --security-erase p /dev/DISK
+
+
+wait at least the length of time provided by manufacturer.
+
+
+
+https://grok.lsu.edu/Article.aspx?articleid=16716
+
+
